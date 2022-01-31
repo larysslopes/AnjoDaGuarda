@@ -67,7 +67,7 @@
     </section>
     <section class="imagensFazemos">
         <h1> O que fazemos</h1>
-        <div class="fazemos">
+        <div class="fazemos-top">
             <div class="fisio">
                 <img src="image/fisio.png">
                 Fisioterapia
@@ -83,7 +83,9 @@
             <div class="terapia">
                 <img src="image/terapia.png">
                 Terapia Ocupacional
+                </div>
             </div>
+            <div class="fazemos-low">
             <div class="circo">
                 <img src="image/circo.png">
                 Circo
@@ -118,6 +120,44 @@
     <footer>
 
     </footer>
+
+    <div id="modal-botao" class="modal-container">
+        <div class="modal">
+            <button class="fechar">x</button>
+            <h3 class="subtitulo">Entrar em contato</h3>
+            <form>
+                <input type="text" class="input" placeholder="email">
+                <input type="button" class="button" value="cadastrar">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function iniciaModal(modalID) {
+            if (localStorage.fechaModal !== modalID);
+            const modal = document.getElementById(modalID);
+            if (modal) {
+                modal.classList.add('mostrar');
+                modal.addEventListener('click', (e) => {
+                if (e.target.id == modalID || e.target.className == 'fechar') {
+                    modal.classList.remove('mostrar');
+                    localStorage.fechaModal = modalID;
+            }
+            });
+        }
+    }
+
+        const logo = document.querySelector('.logo');
+        logo.addEventListener('click', () => iniciaModal('modal-botao')); 
+        
+        /*document.addEventListener('scroll', () => {
+            if(window.pageYOffset > 800) {
+                iniciaModal('modal-botao')
+            }
+        })*/
+
+    </script>
+    
     
 </body>
 </html>
